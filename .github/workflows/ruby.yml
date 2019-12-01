@@ -2,16 +2,15 @@ name: Ruby
 
 on: [push]
 
-services:
-  mysql:
-    image: mysql
-    ports:
-      - 3306
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql
+        ports:
+          - 3306
 
     steps:
     - uses: actions/checkout@v1
