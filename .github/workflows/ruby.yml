@@ -14,6 +14,7 @@ jobs:
         env:
           MYSQL_DATABASE: redmine_test
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
 
     container:
       image: ruby:2.6
