@@ -23,9 +23,9 @@ jobs:
     - name: Set up test
       run: |
         cp config/database.yml.github config/database.yml
-        bin/rails db:migrate RAILS_ENV=test
     - name: Build and test with Rake
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+        bundle exec rake db:migrate RAILS_ENV=test
         bundle exec rake
