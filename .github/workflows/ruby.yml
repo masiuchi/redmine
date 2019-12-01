@@ -23,6 +23,7 @@ jobs:
         ruby-version: 2.6.x
     - name: Set up test
       run: |
+        apt-get -y install libmysqlclient-dev
         cp config/database.yml.github config/database.yml
     - name: Build and test with Rake
       run: |
