@@ -8,9 +8,12 @@ jobs:
 
     services:
       mysql:
-        image: mysql
+        image: mysql:5.8
         ports:
           - 3306
+        env:
+          MYSQL_DATABASE: redmine_test
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
     steps:
     - uses: actions/checkout@v1
@@ -20,8 +23,7 @@ jobs:
         ruby-version: 2.6.x
     - name: Set up test
       run: |
-        cp config/database.yml.example config/database.yml
-        mysql -e 'create database redmine_test'
+        cp config/database.yml.github config/database.yml
     - name: Build and test with Rake
       run: |
         gem install bundler
