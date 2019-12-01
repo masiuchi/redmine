@@ -21,7 +21,7 @@ jobs:
     - name: Set up test
       run: |
         cp config/database.yml.example config/database.yml
-        mysql -uroot -e 'create database redmine_test'
+        mysql -e 'create database redmine_test'
     - name: Build and test with Rake
       run: |
         gem install bundler
