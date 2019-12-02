@@ -22,6 +22,8 @@ jobs:
     - name: Set up test
       run: |
         cp config/database.yml.github config/database.yml
+        apt-get update
+        apt-get -y install ghostscript
     - name: Build and test with Rake
       run: |
         gem install bundler
